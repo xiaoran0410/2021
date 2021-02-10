@@ -1,0 +1,23 @@
+import matplotlib.pyplot as plt
+
+
+def list_xy(m,n,r):
+    listx=list(range(1,n+1))
+    listy=[]
+    for i in listx:
+        g=m*(1+r/100)**i
+        listy.append(g)
+    return listx,listy
+
+
+def draw(x,y):
+    plt.bar(x,y,color="orange")
+    for x,y in zip(x,y):
+        plt.text(x,y,int(y))
+    plt.show()
+
+m=eval(input('本金'))
+n=eval(input('年份'))
+r=eval(input('利率'))
+x,y=list_xy(m,n,r)
+draw(x,y)
